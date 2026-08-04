@@ -4,8 +4,8 @@
 
     - name: Copy compose file
       copy:
-        src: ../compose.yaml
-        dest: /home/debian/simple-project/compose.yaml
+        src: ../compose.yml
+        dest: /home/debian/simple-project/compose.yml
 
     - name: Pull latest image
       command: podman compose pull
