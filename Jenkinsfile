@@ -4,7 +4,7 @@ pipeline {
 
     environment {
 
-        IMAGE = "192.168.2.251:5000/simple-project"
+        IMAGE = "192.168.20.251:5000/simple-project"
 
     }
 
