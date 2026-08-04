@@ -1,0 +1,18 @@
+- hosts: cd
+
+  tasks:
+
+    - name: Copy compose file
+      copy:
+        src: ../compose.yaml
+        dest: /home/debian/simple-project/compose.yaml
+
+    - name: Pull latest image
+      command: podman compose pull
+      args:
+        chdir: /home/debian/simple-project
+
+    - name: Recreate containers
+      command: podman compose up -d
+      args:
+        chdir: /home/debian/simple-project

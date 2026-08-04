@@ -1,0 +1,2 @@
+[cd]
+cd-server ansible_host=192.168.20.252 ansible_user=debian

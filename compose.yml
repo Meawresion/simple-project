@@ -1,0 +1,12 @@
+services:
+
+  simple-project:
+
+    image: 192.168.20.251:5000/simple-project:latest
+
+    container_name: simple-project
+
+    ports:
+      - "8080:80"
+
+    restart: unless-stopped
