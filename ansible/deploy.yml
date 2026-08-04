@@ -1,5 +1,4 @@
 - hosts: cd
-
   tasks:
 
     - name: Copy compose file
@@ -12,7 +11,13 @@
       args:
         chdir: /home/debian/simple-project
 
-    - name: Recreate containers
-      command: podman-compose up -d
+    - name: Remove old containers
+      command: podman-compose down
+      args:
+        chdir: /home/debian/simple-project
+      ignore_errors: yes
+
+    - name: Start containers
+      command: podman-compose up -d --pull always --force-recreate
       args:
         chdir: /home/debian/simple-project
