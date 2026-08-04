@@ -1,5 +1,15 @@
-FROM docker.io/nginx:alpine
+FROM docker.io/node:22-alpine
 
-COPY src/ /usr/share/nginx/html
-COPY run-tests.sh /run-tests.sh
-RUN chmod +x /run-tests.sh
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm ci
+
+COPY . .
+
+RUN npm run build
+
+EXPOSE 3000
+
+CMD ["npm", "start"]

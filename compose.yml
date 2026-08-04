@@ -1,12 +1,13 @@
 services:
-
   simple-project:
-
     image: 192.168.20.251:5000/simple-project:latest
 
     container_name: simple-project
 
     ports:
-      - "8080:80"
+      - "8080:3000"
+
+    environment:
+      NODE_ENV: production
 
     restart: unless-stopped
